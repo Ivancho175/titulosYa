@@ -1,0 +1,64 @@
+@import "./theme/settings";
+
+.header {
+  @include flexbox(space-between, center, row);
+  position: fixed;
+  top: 0;
+  background-color: #e4e3e3;
+  width: 100%;
+  height: 74px;
+  padding: 5px 30px;
+  border: solid 2px #1a1a1a;
+  z-index: 10;
+
+  li {
+    list-style: none;
+    cursor: pointer;
+    transition: all 100ms linear;
+  }
+
+  .logo-container {
+    @include flexbox(center, center, column);
+    background-color: #b9b9b9;
+    height: 100%;
+    max-width: 90px;
+    padding: 10px 30px;
+    cursor: pointer;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .main-navbar {
+    &__list {
+      @include flexbox(space-between, center, row);
+      &__item {
+        padding: 15px 20px;
+        &:hover,
+        &.active {
+          color: #4c49a7c5;
+          border-bottom: solid 1px #4c49a7c5;
+        }
+      }
+    }
+  }
+
+  .login-navbar {
+    &__list {
+      @include flexbox(space-between, center, row);
+      li + li {
+        margin-left: 15px;
+      }
+      &__item {
+        background-color: #4c49a7c5;
+        color: #ffffff;
+        border-radius: 5px;
+        padding: 15px 20px;
+        &:hover,
+        &.active {
+          background-color: #4c49a7;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<section class="register">
+
+  <div class="register-content">
+
+    <h3 class="register-content__title">Regístrate aquí</h3>
+
+    <form class="register-content__fields" [formGroup]="registerForm" (ngSubmit)="sendForm(registerForm)">
+
+      <input
+        formControlName="name"
+        name="name"
+        type="text"
+        placeholder="Nombre completo"
+        class="register-content__fields__input-area">
+
+      <input
+        formControlName="email"
+        name="email"
+        type="email"
+        placeholder="Correo electrónico"
+        class="register-content__fields__input-area">
+
+      <input
+        formControlName="password"
+        name="password"
+        type="password"
+        placeholder="Contraseña"
+        class="register-content__fields__input-area">
+
+      <input
+        formControlName="checkPassword"
+        name="checkPassword"
+        type="password"
+        placeholder="Confirma tu contraseña"
+        class="register-content__fields__input-area">
+
+      <input
+        formControlName="tel"
+        id="tel"
+        name="tel"
+        type="tel"
+        placeholder="Celular"
+        class="register-content__fields__input-area">
+
+      <select
+        formControlName="documentType"
+        name="documentType"
+        class="register-content__fields__input-area">
+        <option disabled selected value>
+          Tipo de documento
+        </option>
+        <option value="CC">Cédula de ciudadanía</option>
+        <option value="CE">Cédula de extranjería</option>
+        <option value="DPI">Documento Personal Identificación</option>
+        <option value="PP">Pasaporte</option>
+        <option value="REG">Registro</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <input
+      formControlName="docNumber"
+      id="docNumber"
+      type="text"
+      placeholder="No. de documento"
+      class="register-content__fields__input-area">
+
+      <input
+      [ngClass]="{active: registerForm.valid}"
+      type="submit"
+      id="submit"
+      value="Registrarse"
+      class="register-content__btn">
+
+    </form>
+
+
+    <span routerLink="/login" class="login">
+      Iniciar sesión
+    </span>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+@import "./theme/settings";
+
+.single-study {
+  @include flexbox(center, center, column);
+  height: 101vh;
+  width: 100%;
+  background-color: #fff;
+  p {
+    font-size: 72px;
+    color: #1f1f1f;
+  }
+}

@@ -1,0 +1,23 @@
+<section class="login">
+
+  <div class="login-content">
+
+    <h3 class="login-content__title">Inicia tu sesión aquí</h3>
+
+    <div class="login-content__fields">
+
+      <input [formControl]="emailField" type="email" placeholder="Correo electrónico" class="login-content__fields__input-area">
+
+      <input [formControl]="passwordField" type="password" placeholder="Contraseña" class="login-content__fields__input-area">
+    </div>
+
+    <input
+    [ngClass]="{active: emailField.valid && passwordField.valid}"
+    type="submit"
+    value="Ingresar"
+    class="login-content__btn"
+    (click)="login()">
+
+    <span routerLink="/register" class="register">Registrarse</span>
+  </div>
+</section>

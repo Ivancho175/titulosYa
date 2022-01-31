@@ -1,0 +1,66 @@
+@import 'breakpoints';
+
+$--clr-font-light: #789095;
+$--clr-font-regular: #455D62;
+$--clr-font-dark: #344549;
+$--clr-lucro-red: #EF5D50;
+$--background: #E5E5E5;
+
+$--fw-light: 300;
+$--fw-regular: 400;
+$--fw-bold: 700;
+
+$--fs-p: 18px;
+$--fs-h1: 60px;
+$--fs-h2: 48px;
+$--fs-h3: 34px;
+
+@mixin flexbox($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin fontStyle($size, $l-height, $weight, $color, $text-transform) {
+    font-size: $size;
+    line-height: $l-height;
+    font-weight: $weight;
+    color: $color;
+    text-transform: $text-transform;
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
+// Custom devices
+// @mixin rwd($screen) {
+//   @media (min-width: $screen+'px') {
+//       @content;
+//   }
+// }

@@ -1,19 +1,77 @@
-<section class="header">
-  <figure routerLink="/home" class="logo-container">
-    <img src="assets/images/brokenImage.png" alt="TitulosYa logo">
-  </figure>
+<header class="header">
+  <div class="header-content" [ngClass]="{ active: clickHamburger }">
+    <figure
+      routerLink="/home"
+      (click)="clickHamburger = false"
+      class="logo-container"
+    >
+      <img src="assets/images/brand.png" alt="TitulosYa logo" />
+    </figure>
 
-  <nav class="main-navbar">
-    <ul class="main-navbar__list">
-      <li routerLink="/home" routerLinkActive="active" class="main-navbar__list__item">Inicio</li>
-      <li routerLink="/singleStudy" routerLinkActive="active" class="main-navbar__list__item">Realizar Estudio</li>
-    </ul>
-  </nav>
+    <nav class="main-navbar" *ngIf="!isLogged">
+      <ul class="main-navbar__list">
+        <li
+          (click)="clickHamburger = false"
+          routerLink="/singleStudy"
+          routerLinkActive="active"
+          class="main-navbar__list__item"
+        >
+          Realizar Estudio
+        </li>
+      </ul>
+    </nav>
 
-  <nav class="login-navbar">
-    <ul class="login-navbar__list">
-      <li routerLink="/login" routerLinkActive="active" class="login-navbar__list__item">Iniciar sesión</li>
-      <li routerLink="/register" routerLinkActive="active" class="login-navbar__list__item">Registro</li>
-    </ul>
-  </nav>
-</section>
+    <div class="bar" *ngIf="!isLogged"></div>
+
+    <nav class="login-navbar">
+      <ul class="login-navbar__list">
+        <li
+          (click)="clickHamburger = false"
+          routerLink="/register"
+          routerLinkActive="active"
+          class="login-navbar__list__item ghost-primary"
+          *ngIf="!isLogged"
+        >
+          Registrarme
+        </li>
+        <li
+          (click)="clickHamburger = false"
+          routerLink="/login"
+          routerLinkActive="active"
+          class="login-navbar__list__item secondary"
+          *ngIf="!isLogged"
+        >
+          Iniciar sesión
+        </li>
+        <li class="login-navbar__list__item" *ngIf="!isLogged">
+          <span>
+            <img src="assets/images/icons/help-circle.svg" alt="frequent questions">
+          </span>
+        </li>
+        <li class="login-navbar__list__item" *ngIf="isLogged">
+          <p class="login-navbar__list__item__name">
+            {{ user.email }}
+          </p>
+        </li>
+        <li class="login-navbar__list__item" *ngIf="isLogged">
+          <span>
+            <img src="assets/images/icons/select-arrow.svg" alt="options">
+          </span>
+          <div class="login-navbar__list__item__card">
+            <p class="login-navbar__list__item__card__option" (click)="logout()">
+              Cerrar sesión
+            </p>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      class="nav-toggle"
+      aria-label="toggle navigation"
+      (click)="clickHamburger = !clickHamburger"
+    >
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>

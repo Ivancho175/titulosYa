@@ -1,0 +1,21 @@
+@import "./theme/settings";
+
+.payment {
+  display: block;
+  width: 87%;
+  margin: 0 auto;
+  padding: 4.5rem 0;
+  router-outlet {
+    display: none;
+  }
+  @include lg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6em;
+    max-width: 69.375rem;
+    padding-bottom: 0;
+    app-resume {
+      place-self: center;
+    }
+  }
+}

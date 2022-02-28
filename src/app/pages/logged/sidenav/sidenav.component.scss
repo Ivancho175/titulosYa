@@ -1,0 +1,123 @@
+@import "/theme/settings";
+
+.sidenav {
+  padding-top: 3.8rem;
+  & * {
+    transition: all 50ms ease-in;
+  }
+
+  .greetings {
+    width: 87%;
+    max-width: 20rem;
+    margin: 0 auto;
+    &__text {
+      @include fontStyle(
+        var(--fs-h1),
+        var(--lh-h1),
+        $--fw-semi-bold,
+        $--clr-soft-dark,
+        undefined
+      );
+      font-family: $--ff-secondary;
+      text-align: left;
+      margin-right: auto;
+    }
+  }
+
+  nav {
+    overflow-x: hidden;
+    overflow-y: visible;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: fit-content;
+    z-index: 2;
+    .sidenav__list {
+      @include flexbox(space-between, center, row);
+      width: 100%;
+      max-width: fit-content;
+      height: fit-content;
+      margin: 0 auto;
+      padding: 1em 0.9375rem 0;
+      overflow-x: scroll;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      overflow-y: visible;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        background: transparent;
+        display: none;
+      }
+      li {
+        list-style: none;
+        min-width: fit-content;
+        overflow-y: visible;
+        scroll-snap-align: center;
+        cursor: pointer;
+      }
+      &--item {
+        @include fontStyle(var(--fs-pm), var(--lh-pm), $--fw-regular, $--foreground-opaque, undefined);
+        padding: 0.75rem;
+        border-bottom: solid 4px transparent;
+        cursor: pointer;
+        &:hover,
+        &.active {
+          color: $--foreground;
+          border-bottom: solid 4px $--clr-primary-blue;
+        }
+      }
+    }
+  }
+
+  @include sm {
+    .greetings {
+      max-width: 22rem;
+    }
+    nav {
+      .sidenav__list {
+        padding: 1.1em 1.03125rem 0;
+        &--item {
+          padding: 0.825rem;
+        }
+      }
+    }
+  }
+
+  @include md {
+    .greetings {
+      max-width: 26rem;
+    }
+    nav {
+      .sidenav__list {
+        padding: 1.3em 1.21875rem 0;
+        &--item {
+          padding: 0.975rem;
+        }
+      }
+    }
+  }
+
+  @include lg {
+    max-width: 55.5rem;
+    margin: 0 auto;
+    .greetings {
+      margin-left: 0;
+    }
+    nav {
+      width: auto;
+      .sidenav__list {
+        margin-left: 0;
+        padding-bottom: 0;
+        &--item {
+          font-size: var(--fs-ps);
+          line-height: var(--lh-ps);
+        }
+      }
+    }
+  }
+
+  @include xl {
+    max-width: 69.375rem;
+  }
+
+}

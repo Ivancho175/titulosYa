@@ -1,3 +1,124 @@
 <section class="single-study">
-  <p>Proyecto en construcción!</p>
+  <article>
+    <h2 class="single-study__title">
+      ¿Cómo obtener mi certificado de tradición y libertad?
+    </h2>
+  </article>
+
+  <div class="sectionOne">
+    <article class="sectionOne__content">
+      <figure class="sectionOne__content__image">
+        <img
+          src="/assets/images/singleStudy/snr_tuto.png"
+          alt="Supernotariado steps tutorial"
+        />
+      </figure>
+      <div class="sectionOne__content__article">
+        <h1 class="sectionOne__content__article__subtitle">
+          Descarga tu certificado de tradición
+        </h1>
+        <p class="sectionOne__content__article__text">
+          Ingresa a la Superintendencia de notariado y registro y obtén tu
+          certificado de tradición y libertad
+        </p>
+        <a
+          href="https://www.snrcertificados.co/"
+          class="sectionOne__content__article__button"
+          target="_blank"
+        >
+          Ir a Super Notariado
+        </a>
+      </div>
+    </article>
+  </div>
+<!-- (click)="verify = true" -->
+  <div class="sectionTwo">
+    <article class="sectionTwo__content">
+      <ngx-dropzone
+        (change)="onSelect($event)"
+        [multiple]="false"
+        class="upload-container"
+        accept="application/pdf">
+        <ul class="links-list">
+          <h2 class="links-list__title">Por favor sube tu certificado</h2>
+          <div class="step-1">
+            <span class="upCloud-container">
+              <img
+                src="/assets/images/singleStudy/upCloud.png"
+                class="fas fa-upload"
+              />
+            </span>
+            <li routerLink="/singleStudy" class="button">
+              Selecciona tu archivo
+            </li>
+            <p class="mobile">Selecciona el archivo en tu celular</p>
+            <p class="desk">Selecciona un archivo o arrastra y suelta aquí</p>
+            <span class="warn-container"> PDF no mayor de 10MB </span>
+          </div>
+        </ul>
+      </ngx-dropzone>
+
+      <div class="sectionTwo__content__article">
+        <h1 class="sectionTwo__content__article__subtitle">
+          Carga tu certificado
+        </h1>
+        <p class="sectionTwo__content__article__text">
+          Revisa que el archivo sea un PDF y sea el correcto según lo
+          descargaste del Super Notario.
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div [ngClass]="{ verify: verify }" class="call-to-action">
+    <div class="call-to-action__card">
+      <div (click)="verify = false" class="close">
+        <i class="fas fa-times"></i>
+      </div>
+      <figure class="call-to-action__card__image">
+        <img
+          src="/assets/images/singleStudy/call-to-action.svg"
+          alt="Would you like to register? / diamond with stars"
+        />
+      </figure>
+      <h2 class="call-to-action__card__title">
+        Regístrate y obtén estos beneficios:
+      </h2>
+      <ul class="benefits-list">
+        <li class="benefits-list__item">
+          <p class="call-to-action__card__text">
+            Almacena tu historial de estudios hasta por 3 meses.
+          </p>
+        </li>
+        <li class="benefits-list__item">
+          <p class="call-to-action__card__text">
+            Puedes disponer de los estudios adquiridos en cualquier momento.
+          </p>
+        </li>
+        <li class="benefits-list__item">
+          <p class="call-to-action__card__text">
+            Mantente informado de las novedades y/o promociones de titulosya.
+          </p>
+        </li>
+      </ul>
+      <nav class="call-to-action__card-navbar">
+        <ul class="call-to-action__card-navbar__list">
+          <li
+            routerLink="/payment"
+            routerLinkActive="active"
+            class="call-to-action__card-navbar__list__item ghost-primary"
+          >
+            Prefiero ir a pagar
+          </li>
+          <li
+            routerLink="/register"
+            routerLinkActive="active"
+            class="call-to-action__card-navbar__list__item secondary"
+          >
+            Registrarme
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </section>

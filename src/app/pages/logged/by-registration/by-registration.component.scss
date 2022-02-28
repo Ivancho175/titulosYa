@@ -1,0 +1,218 @@
+@import "/theme/settings";
+
+.by-registration {
+  @include flexbox(center, center, column);
+  /* width: 87%;
+  max-width: 20rem; */
+  width: 100%;
+  min-height: 40vh;
+  height: auto;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  &__content {
+    @include flexbox(center, center, column);
+    width: 87%;
+    max-width: 20rem;
+    margin-bottom: auto;
+    .hero {
+      @include flexbox(center, center, row);
+      margin-bottom: 2.326875rem;
+      &__image {
+        width: 4.61625rem;
+        height: 4.6225rem;
+        opacity: 0.3;
+        img {
+          width: 100%;
+        }
+      }
+      &__text {
+        @include fontStyle(
+          var(--fs-ps),
+          var(--lh-ps),
+          $--fw-semi-bold,
+          $--clr-primary-blue,
+          undefined
+        );
+        font-family: $--ff-secondary;
+        max-width: 7.67375rem;
+        margin-left: 1.473125rem;
+        opacity: 0.3;
+      }
+    }
+    .input-field {
+      position: relative;
+      width: 100%;
+      label {
+        .input-field__label {
+          @include fontStyle(
+            var(--fs-pm),
+            var(--lh-pm),
+            $--fw-regular,
+            $--clr-soft-dark,
+            undefined
+          );
+          margin-bottom: 0.3125rem;
+        }
+        .input-field__container {
+          &__search-box {
+            width: 100%;
+            @include fontStyle(
+              var(--fs-pm),
+              var(--lh-pm),
+              $--fw-light,
+              $--foreground,
+              undefined
+            );
+            position: relative;
+            font-family: $--ff-primary;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            border: solid 1px rgb(184, 184, 184);
+            &:active,
+            &:focus {
+              outline: none;
+            }
+            &::placeholder {
+              @include fontStyle(
+                var(--fs-pm),
+                var(--lh-pm),
+                $--fw-light,
+                $--foreground-opaque,
+                undefined
+              );
+              font-family: $--ff-primary;
+              opacity: 0.8;
+            }
+          }
+          &__btn {
+            @include flexbox(center, center, column);
+            @include fontStyle(
+              var(--fs-pm),
+              var(--lh-pm),
+              $--fw-medium,
+              $--clr-light,
+              undefined
+            );
+            position: absolute;
+            right: 0.1875rem;
+            bottom: 0.1875rem;
+            width: 30%;
+            height: 50%;
+            border-style: none;
+            border-radius: 2rem;
+            padding: 0.625rem 2.75rem;
+            background: $--clr-primary-blue;
+            cursor: pointer;
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include sm {
+    padding: 1.55rem 0;
+    &__content {
+      max-width: 22rem;
+      .hero {
+        margin-bottom: 2.5595625rem;
+        &__image {
+          width: 5.077875rem;
+          height: 5.08475rem;
+        }
+        &__text {
+          max-width: 8.441125rem;
+          margin-left: 1.6204375rem;
+        }
+      }
+      .input-field {
+        label {
+          .input-field__label {
+            margin-bottom: 0.34375rem;
+          }
+          .input-field__container {
+            &__search-box {
+              padding: 0.55rem 1.1rem;
+            }
+            &__btn {
+              right: 0.20625rem;
+              bottom: 0.20625rem;
+              padding: 0.6875rem 3.025rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include md {
+    padding: 1.65rem 0;
+    &__content {
+      max-width: 26rem;
+      .hero {
+        margin-bottom: 3.0249375rem;
+        &__image {
+          width: 6.001125rem;
+          height: 6.00925rem;
+        }
+        &__text {
+          max-width: 9.975875rem;
+          margin-left: 1.9150625rem;
+        }
+      }
+      .input-field {
+        label {
+          .input-field__label {
+            margin-bottom: 0.40625rem;
+          }
+          .input-field__container {
+            &__search-box {
+              padding: 0.65rem 1.3rem;
+            }
+            &__btn {
+              right: 0.24375rem;
+              bottom: 0.24375rem;
+              padding: 0.8125rem 3.575rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include lg {
+    padding: 3rem 0;
+    &__content {
+      max-width: 27rem;
+      .hero {
+        margin-bottom: 2.3715rem;
+        &__image {
+          width: 5.5235rem;
+          height: 5.5315rem;
+        }
+        &__text {
+          max-width: 8.5rem;
+        }
+      }
+    }
+  }
+
+  @include xl {
+    padding: 3.6rem 0;
+    &__content {
+      max-width: 33.75rem;
+      .hero {
+        margin-bottom: 2.964375rem;
+        &__image {
+          width: 6.904375rem;
+          height: 6.914375rem;
+        }
+        &__text {
+          max-width: 10.625rem;
+        }
+      }
+    }
+  }
+}

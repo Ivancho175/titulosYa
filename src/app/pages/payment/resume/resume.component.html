@@ -1,0 +1,64 @@
+<section class="resume">
+  <figure class="brands-container__image">
+    <img src="/assets/images/payment/resume/brands.png" alt="Wompi, safety pay. Powered by Bancolombia">
+  </figure>
+  <div class="data-container">
+    <table>
+      <tr>
+        <th>Resumen</th>
+      </tr>
+      <tr>
+        <td>Número de matrícula</td>
+        <td>LSIAB6515613-1</td>
+      </tr>
+      <tr>
+        <td>Sub total</td>
+        <td>$316.000</td>
+      </tr>
+      <tr>
+        <td>Descuento</td>
+        <td>$0</td>
+      </tr>
+      <tr>
+        <td>IVA 19%</td>
+        <td>$74.100</td>
+      </tr>
+      <hr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td><strong>$390.000</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="politics">
+    <label class="politics-label">
+      <input
+      formControlName="check1"
+      name="check1"
+      type="checkbox"
+      id="check1"
+      value="first_checkbox" />
+      <p>He leido y aceptado todos los <a href="#">Términos y Condiciones</a> y <a href="#">Políticas de Privacidad</a> al dejar mis datos</p>
+    </label>
+    <br />
+    <label class="politics-label">
+      <input
+        formControlName="check2"
+        name="check2"
+        type="checkbox"
+        id="check2"
+        value="second_checkbox"
+      />
+      <p>Al dejar mi datos estoy aceptando las <a href="#">Políticas de Privacidad</a> por parte de Titulos Ya</p>
+    </label>
+  </div>
+
+  <input
+  routerLink="/payment/checkOut"
+  type="submit"
+  id="submit"
+  value="Continuar"
+  class="btn">
+</section>
+<!-- [ngClass]="{active: UserDataForm.valid}" -->

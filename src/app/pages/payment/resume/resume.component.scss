@@ -1,0 +1,165 @@
+@import "./theme/settings";
+
+.resume {
+  max-width: 20rem;
+  margin: 0 auto;
+  .brands-container__image {
+    display: none;
+    img {
+      width: 100%;
+    }
+  }
+  .data-container {
+    width: 100%;
+    hr {
+      opacity: 0.3;
+      min-width: 180%;
+      border: solid 0.5px $--foreground-opaque;
+    }
+    table {
+      width: 100%;
+      tr {
+        height: auto;
+        margin: 1em auto;
+        & * {
+          padding: 0.8rem 0;
+        }
+        th {
+          @include fontStyle(var(--fs-h2), var(--lh-h2), $--fw-regular, $--foreground, undefined);
+          font-family: $--ff-secondary;
+          text-align: left;
+        }
+        td {
+          @include fontStyle(var(--fs-ps), var(--lh-ps), $--fw-regular, $--foreground, undefined);
+          &:nth-child(2) {
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
+  .politics {
+    &-label {
+      @include flexbox(center, center, row);
+      @include fontStyle(
+        var(--fs-ps),
+        var(--lh-ps),
+        $--fw-regular,
+        $--foreground,
+        undefined
+      );
+      input[type=checkbox] {
+        height: 1.5625rem;
+        min-width: 1.5625rem;
+        margin-right: 1em;
+        opacity: 0.3;
+        &:checked {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  .btn {
+    width: 100%;
+    margin-top: 1.5em;
+    padding: 0.9375rem 0;
+    font-size: var(--fs-pm);
+    border-style: none;
+    border-radius: 32px;
+    color: $--clr-light;
+    background-color: #e1e1e1;
+    transition: all 50ms linear;
+    pointer-events: none;
+    &.active {
+      cursor: pointer;
+      background-color: $--clr-primary-green;
+      pointer-events: all;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  @include sm {
+    max-width: 22rem;
+    .data-container {
+      table {
+        tr {
+          margin: 1.1em 0;
+          & * {
+            padding: 0.88rem 0;
+          }
+        }
+      }
+    }
+    .politics {
+      &-label {
+        input[type=checkbox] {
+          height: 1.71875rem;
+          min-width: 1.71875rem;
+          margin-right: 1.1em;
+          opacity: 0.3;
+          &:checked {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .btn {
+      margin-top: 1.65em;
+      padding: 1.03125rem 0;
+    }
+  }
+
+  @include md {
+    max-width: 26rem;
+    .data-container {
+      table {
+        tr {
+          margin: 1.3em 0;
+          & * {
+            padding: 1.04rem 0;
+          }
+        }
+      }
+    }
+    .politics {
+      &-label {
+        input[type=checkbox] {
+          height: 2.03125rem;
+          min-width: 2.03125rem;
+          margin-right: 1.1em;
+          opacity: 0.3;
+          &:checked {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .btn {
+      margin-top: 1.95em;
+      padding: 1.21875rem 0;
+    }
+  }
+
+  @include lg {
+    @include flexbox(center, center, column);
+    max-width: 87%;
+    margin-top: auto;
+    .brands-container__image {
+      display: initial;
+      width: 17.35rem;
+      height: 3.05rem;
+      margin-left: auto;
+      margin-bottom: 1.5em;
+    }
+  }
+
+  @include xl {
+    .brands-container__image {
+      width: 21.6875rem;
+      height: 3.8125rem;
+      margin-bottom: 1.65em;
+    }
+  }
+}

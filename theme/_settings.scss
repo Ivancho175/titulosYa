@@ -1,19 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@300;400;500&family=Sora:wght@400;600;700&display=swap');
 @import 'breakpoints';
 
-$--clr-font-light: #789095;
-$--clr-font-regular: #455D62;
-$--clr-font-dark: #344549;
-$--clr-lucro-red: #EF5D50;
-$--background: #E5E5E5;
+$--clr-primary-blue: #063FB2;
+$--clr-primary-green: #00DB22;
+$--clr-light: #f9f9f9;
+$--clr-dark: #252525;
+$--clr-soft-dark: #505050;
+$--clr-dark-grey: #808080;
+$--clr-grey: #b5b5b5;
+$--clr-dark-opaque: #9A9EA6;
+
+$--background: $--clr-light;
+$--foreground: $--clr-dark;
+$--foreground-opaque: $--clr-dark-opaque;
 
 $--fw-light: 300;
 $--fw-regular: 400;
+$--fw-medium: 500;
+$--fw-semi-bold: 600;
 $--fw-bold: 700;
 
-$--fs-p: 18px;
-$--fs-h1: 60px;
-$--fs-h2: 48px;
-$--fs-h3: 34px;
+$--ff-primary: 'Roboto', sans-serif;
+$--ff-secondary: 'Sora', sans-serif;
+$--ff-tertiary: 'Montserrat', sans-serif;
 
 @mixin flexbox($justify, $align, $direction) {
     display: flex;

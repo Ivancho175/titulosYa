@@ -1,0 +1,26 @@
+@import "/theme/settings";
+
+.credits {
+  &__options {
+    @include flexbox(space-evenly, center, row);
+    li {
+      list-style: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: $--fw-bold;
+    }
+    a {
+      text-decoration: none;
+      padding: 15px 20px;
+    }
+    .button {
+      background-color: #4c49a7c5;
+      color: #ffffff;
+      border-radius: 5px;
+      margin-block: 0.5em;
+      &:hover {
+        background-color: #4c49a7;
+      }
+    }
+  }
+}

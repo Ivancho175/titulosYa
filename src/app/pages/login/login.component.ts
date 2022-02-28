@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from 'src/app/@shared/services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -8,28 +9,33 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  emailField: FormControl;
-  passwordField: FormControl;
+  public loginForm: FormGroup;
 
-  constructor() {
-    this.emailField = new FormControl('', [
-      Validators.email,
-      Validators.required
-    ]);
-    this.emailField.valueChanges.subscribe(value => {
-    });
-    this.passwordField = new FormControl('', [
-      Validators.required,
-      Validators.minLength(6)
-    ]);
+  constructor(
+    private formbuilder: FormBuilder,
+    private usersService: UsersService
+  ) {
+    this.loginForm = this.formbuilder.group({
+      email: new FormControl('', [
+        Validators.pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/),
+        Validators.required
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    })
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
   }
 
-  login() {
-    if(this.emailField.valid && this.passwordField.valid) {
-      console.log(this.emailField.value, this.passwordField.value);
+  login(loginForm: FormGroup) {
+    if(loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.usersService.onLogin(email, password);
+      console.log(loginForm);
     }
   }
 

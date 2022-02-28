@@ -1,0 +1,78 @@
+<section class="check-out">
+  <div class="check-out-content">
+    <h3 class="check-out-content__title">CheckOut</h3>
+    <div class="pay-options">
+      <h2 class="pay-options__text">Medio de pago</h2>
+      <hr>
+      <ul class="pay-options__options-list">
+        <img src="assets/images/brokenImage.png">
+        <img src="assets/images/brokenImage.png">
+        <img src="assets/images/brokenImage.png">
+      </ul>
+      <p class="pay-options__msg">Enviaremos la información a <a href="mailTo:mail@gmail.com" >mail@gmail.com</a></p>
+    </div>
+    <form
+      action=""
+      class="check-out-content__fields"
+      [formGroup]="CheckOutForm"
+      (ngSubmit)="sendForm(CheckOutForm)"
+    >
+
+    <input
+      formControlName="cardNumber"
+      name="cardNumber"
+      type="text"
+      placeholder="Número de tarjeta"
+      class="check-out-content__fields__input-area">
+
+    <div class="date-and-code">
+
+      <input
+        formControlName="expDate"
+        name="expDate"
+        type="text"
+        onfocus="(this.type='date')"
+        placeholder="Fecha vencimiento"
+        class="check-out-content__fields__input-area">
+
+      <input
+        formControlName="cvv"
+        name="cvv"
+        type="number"
+        placeholder="CVV"
+        class="check-out-content__fields__input-area">
+
+    </div>
+
+    <input
+    formControlName="cuotes"
+    name="cuotes"
+    type="number"
+    placeholder="Número de cuotas"
+    class="check-out-content__fields__input-area">
+
+    <input
+      formControlName="coupon"
+      name="coupon"
+      type="text"
+      placeholder="Cupón"
+      class="check-out-content__fields__input-area">
+
+    <div class="amount-and-confirm">
+
+      <span class="amount">
+        $000.000
+      </span>
+
+      <input
+      [ngClass]="{active: CheckOutForm.valid}"
+      routerLink="/success"
+      type="submit"
+      id="submit"
+      value="Confirmar y pagar"
+      class="check-out-content__btn">
+    </div>
+
+    </form>
+  </div>
+</section>

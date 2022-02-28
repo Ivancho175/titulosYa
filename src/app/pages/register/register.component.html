@@ -1,81 +1,202 @@
 <section class="register">
-
   <div class="register-content">
-
     <h3 class="register-content__title">Regístrate aquí</h3>
 
-    <form class="register-content__fields" [formGroup]="registerForm" (ngSubmit)="sendForm(registerForm)">
+    <ul class="selector">
+      <li
+        [ngClass]="{ active: natural }"
+        (click)="natural = true"
+        class="selector__natural"
+      >
+        Persona Natural
+      </li>
+      <li
+        [ngClass]="{ active: !natural }"
+        (click)="natural = false"
+        class="selector__juridica"
+      >
+        Persona Jurídica
+      </li>
+    </ul>
 
+    <form
+      class="register-content__fields"
+      [formGroup]="registerForm"
+      (ngSubmit)="sendForm(registerForm)"
+    >
+      <label for="name">¿Cómo es tu nombre?</label>
       <input
+        autofocus
+        autocomplete="off"
         formControlName="name"
         name="name"
+        id="name"
         type="text"
         placeholder="Nombre completo"
-        class="register-content__fields__input-area">
+        class="register-content__fields__input-area"
+        [class.wrong]="registerForm.controls.name.dirty"
+        [class.checked]="registerForm.controls.name.valid"
+      />
+      <p
+        class="error-text">
+        Ingresa tu nombre completo
+      </p>
 
+      <label for="email" *ngIf="natural">Tu correo electrónico</label>
+      <label for="email" *ngIf="!natural"
+        >Tu correo electrónico corporativo</label
+      >
       <input
+        autocomplete="off"
+        [class.wrong]="registerForm.controls.email.dirty"
+        [class.checked]="registerForm.controls.email.valid"
         formControlName="email"
+        id="email"
         name="email"
         type="email"
-        placeholder="Correo electrónico"
-        class="register-content__fields__input-area">
+        placeholder="@mail.com"
+        class="register-content__fields__input-area"
+      />
+      <p
+        [class.valid]="registerForm.controls.email.valid"
+        [class.invalid]="registerForm.controls.email.dirty"
+        class="error-text">
+        Ingresa un email válido
+      </p>
 
+      <label for="tel">¿A que número celular te contáctamos?</label>
       <input
-        formControlName="password"
-        name="password"
-        type="password"
-        placeholder="Contraseña"
-        class="register-content__fields__input-area">
-
-      <input
-        formControlName="checkPassword"
-        name="checkPassword"
-        type="password"
-        placeholder="Confirma tu contraseña"
-        class="register-content__fields__input-area">
-
-      <input
+        autocomplete="off"
+        [class.wrong]="registerForm.controls.tel.dirty"
+        [class.checked]="registerForm.controls.tel.valid"
         formControlName="tel"
         id="tel"
         name="tel"
-        type="tel"
-        placeholder="Celular"
-        class="register-content__fields__input-area">
+        type="number"
+        class="register-content__fields__input-area"
+      />
+      <p
+        [class.valid]="registerForm.controls.tel.valid"
+        [class.invalid]="registerForm.controls.tel.dirty"
+        class="error-text">
+        Ingresa un número de contacto válido
+      </p>
 
+      <label *ngIf="natural" for="documentType">Tipo de documento</label>
       <select
+        autocomplete="off"
+        *ngIf="natural"
         formControlName="documentType"
         name="documentType"
-        class="register-content__fields__input-area">
-        <option disabled selected value>
-          Tipo de documento
-        </option>
+        id="documentType"
+        class="register-content__fields__input-area"
+      >
+        <option disabled selected value>Selecciona tu documento</option>
         <option value="CC">Cédula de ciudadanía</option>
         <option value="CE">Cédula de extranjería</option>
-        <option value="DPI">Documento Personal Identificación</option>
         <option value="PP">Pasaporte</option>
-        <option value="REG">Registro</option>
         <option value="otro">Otro</option>
       </select>
+      <p
+        *ngIf="natural"
+        class="error-text">
+        Ingresa tu tipo de documento
+      </p>
+
+      <label *ngIf="!natural" for="corp">Razón social</label>
+      <input
+        autocomplete="off"
+        *ngIf="!natural"
+        formControlName="corp"
+        name="corp"
+        id="corp"
+        type="text"
+        class="register-content__fields__input-area"
+      />
+      <p
+        *ngIf="!natural"
+        class="error-text">
+        Ingresa la Razón Social de tu empresa como aparece en el registro
+      </p>
+
+      <label for="docNumber" *ngIf="natural">Número de tu documento</label>
+      <label for="email" *ngIf="!natural">Nit de la empresa</label>
+      <input
+        autocomplete="off"
+        [class.wrong]="registerForm.controls.docNumber.dirty"
+        [class.checked]="registerForm.controls.docNumber.valid"
+        formControlName="docNumber"
+        id="docNumber"
+        type="number"
+        class="register-content__fields__input-area"
+      />
+      <p
+        [class.valid]="registerForm.controls.docNumber.valid"
+        [class.invalid]="registerForm.controls.docNumber.dirty"
+        class="error-text">
+        Ingresa un número válido sin espacios ni guiones
+      </p>
+
+      <label for="password">
+        Crea tu contraseña
+        <span>(Mínimo 8 caracteres alfanumericos)</span></label
+      >
+      <input
+        [class.checked]="registerForm.controls.password.valid"
+        formControlName="password"
+        name="password"
+        id="password"
+        type="password"
+        class="register-content__fields__input-area"
+      />
+      <p
+        [class.valid]="registerForm.controls.password.valid"
+        [class.invalid]="registerForm.controls.password.dirty"
+        class="error-text">
+        Tu contraseña debe contener mínimo 8 caracteres
+      </p>
+
+      <div class="politics">
+        <label class="politics-label">
+          <input
+            formControlName="check1"
+            name="check1"
+            type="checkbox"
+            id="check1"
+            value="first_checkbox"
+          />
+          <p>
+            He leído y aceptado todos los <a href="#">Términos y Condiciones</a> y <a href="#">Políticas de Privacidad</a> al dejar mis datos
+          </p>
+        </label>
+        <br />
+        <label class="politics-label">
+          <input
+            formControlName="check2"
+            name="check2"
+            type="checkbox"
+            id="check2"
+            value="second_checkbox"
+          />
+          <p>
+            Al dejar mi datos estoy aceptando las <a href="#">Políticas de Privacidad</a> por
+            parte de Títulos Ya
+          </p>
+        </label>
+      </div>
 
       <input
-      formControlName="docNumber"
-      id="docNumber"
-      type="text"
-      placeholder="No. de documento"
-      class="register-content__fields__input-area">
-
-      <input
-      [ngClass]="{active: registerForm.valid}"
-      type="submit"
-      id="submit"
-      value="Registrarse"
-      class="register-content__btn">
-
+        [ngClass]="{ active: registerForm.valid }"
+        [disabled]="registerForm.invalid"
+        type="submit"
+        id="submit"
+        value="Registrarse"
+        class="register-content__btn"
+      />
     </form>
 
-
     <span routerLink="/login" class="login">
-      Iniciar sesión
+      Ya tengo una cuenta <a routerLink="/login">¡Iniciar aquí!</a>
     </span>
   </div>
 </section>

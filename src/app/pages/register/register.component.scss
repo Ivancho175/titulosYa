@@ -2,67 +2,277 @@
 
 .register {
   @include flexbox(center, center, column);
-  height: 101vh;
-  width: 100%;
+  height: auto;
+  width: 93%;
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 4.5rem 0;
   text-align: center;
   &-content {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 2em;
-    min-width: 300px;
+    width: 100%;
     &__title {
-      font-size: 32px;
-      line-height: 42px;
-      font-weight: $--fw-light;
+      @include fontStyle(
+        var(--fs-h1),
+        var(--lh-h1),
+        $--fw-semi-bold,
+        $--foreground,
+        undefined
+      );
+      font-family: $--ff-secondary;
+      margin-right: auto;
+    }
+    .selector {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      list-style: none;
+      &__natural,
+      &__juridica {
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-regular,
+          $--foreground-opaque,
+          undefined
+        );
+        cursor: pointer;
+        padding: 0.75rem 0;
+        border-bottom: solid 4px transparent;
+        &:hover,
+        &.active {
+          color: $--foreground;
+          border-bottom: solid 4px $--clr-primary-blue;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
     }
     &__fields {
       display: grid;
       grid-template-columns: 1fr;
       row-gap: 0.5em;
+      label {
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-regular,
+          $--foreground,
+          undefined
+        );
+        margin-right: auto;
+        text-align: left;
+        span {
+          @include fontStyle(
+            var(--fs-ps),
+            var(--lh-ps),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+        }
+      }
+      select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background: url("/assets/images/icons/select-arrow.svg")
+          no-repeat 94.5% 50%;
+        option {
+          @include fontStyle(
+            var(--fs-pm),
+            var(--lh-pm),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+          font-family: $--ff-primary;
+          opacity: 0.8;
+        }
+      }
       &__input-area {
-        padding: 15px 10px;
-        border-radius: 5px;
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-light,
+          $--foreground,
+          undefined
+        );
+        position: relative;
+        font-family: $--ff-primary;
+        padding: 0.9375rem;
+        border-radius: 32px;
         border: solid 1px rgb(184, 184, 184);
+        &.wrong {
+          background: url("/assets/images/icons/fail.svg")
+            no-repeat 94.5% 50%;
+          border: solid 1px #991a1a;
+        }
+        &.checked {
+          background: url("/assets/images/icons/success.svg")
+            no-repeat 94.5% 50%;
+            border: solid 1px #0AB824;
+        }
         &:active,
         &:focus {
           outline: none;
         }
+        &::placeholder {
+          @include fontStyle(
+            var(--fs-pm),
+            var(--lh-pm),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+          font-family: $--ff-primary;
+          opacity: 0.8;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        &[type=number] {
+          -moz-appearance: textfield;
+        }
+      }
+      .error-text {
+        @include fontStyle(10px, 14.06px, $--fw-regular, #991a1a, undefined);
+        opacity: 0;
+        &.invalid {
+          opacity: 1;
+        }
+        &.valid {
+          opacity: 0;
+        }
+      }
+      .politics-label {
+        @include flexbox(center, center, row);
+        @include fontStyle(
+          var(--fs-ps),
+          var(--lh-ps),
+          $--fw-regular,
+          $--foreground,
+          undefined
+        );
+        input[type=checkbox] {
+          height: 1.5625rem;
+          min-width: 1.5625rem;
+          margin-right: 1em;
+          opacity: 0.3;
+          &:checked {
+            opacity: 0.8;
+          }
+        }
       }
       .register-content__btn {
-        margin-top: 1.5em;
-        padding-block: 15px;
+        padding: 0.9375rem 0;
         font-size: 16px;
-        border-radius: 5px;
-        border: solid 1px #4c49a7c5;
-        color: #4c49a7c5;
-        background-color: transparent;
+        border-style: none;
+        border-radius: 32px;
+        color: $--clr-light;
+        background-color: #e1e1e1;
         transition: all 50ms linear;
         pointer-events: none;
         &.active {
           cursor: pointer;
-          background-color: #4c49a7c5;
-          color: #fff;
+          background-color: $--clr-primary-green;
           pointer-events: all;
           &:hover {
-            background-color: #4c49a7;
+            opacity: 0.6;
           }
         }
       }
     }
 
     .login {
-      padding: 0 20px 10px;
+      @include fontStyle(
+        16px,
+        20px,
+        $--fw-regular,
+        $--clr-primary-blue,
+        undefined
+      );
+      padding: 0 1.25rem 0.625rem;
       margin-inline: auto;
-      width: fit-content;
-      border-bottom: solid 1px #4c49a700;
+      max-width: 14.5625rem;
+      color: $--clr-primary-blue;
       cursor: pointer;
       transition: all 50ms linear;
-      opacity: .5;
+      a,
+      a:visited {
+        color: $--clr-primary-blue;
+      }
       &:hover {
-        opacity: 1;
-        color: #4c49a7c5;
-        border-bottom: solid 1px #4c49a7c5;
+        a {
+          opacity: 0.8;
+        }
       }
     }
+  }
+
+  @include sm {
+    max-width: 22rem;
+    &-content {
+      row-gap: 2.2em;
+      &__title {
+        margin-left: 0.33em;
+      }
+      &__fields {
+        row-gap: 0.55em;
+        &__input-area {
+          padding: 1.03125rem;
+        }
+        .register-content__btn {
+          padding: 1.03125rem 0;
+        }
+      }
+      .login {
+        padding: 0 1.375rem 0.6875rem;
+        max-width: 18.01875rem;
+      }
+    }
+  }
+
+  @include md {
+    max-width: 26rem;
+    &-content {
+      row-gap: 2.6m;
+      &__title {
+        margin-left: 0.39em;
+      }
+      &__fields {
+        row-gap: 0.65em;
+        &__input-area {
+          padding: 1.21875rem;
+        }
+        .register-content__btn {
+          padding: 1.21875rem 0;
+        }
+      }
+      .login {
+        padding: 0 1.625rem 0.8125rem;
+        max-width: 18.93125rem;
+      }
+    }
+  }
+
+  @include lg {
+    max-width: 27.5rem;
+    &-content {
+      &__fields {
+        .politics {
+          max-width: 26rem;
+          margin: 0 auto 0.5em;
+        }
+      }
+    }
+  }
+
+  @include xl {
+    max-width: 34.375rem;
   }
 }

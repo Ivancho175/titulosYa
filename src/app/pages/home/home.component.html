@@ -1,113 +1,294 @@
 <section class="home">
-
   <div class="hero">
+
+    <figure class="hero__image-container">
+      <img src="/assets/images/home/Frame 1491.png" alt="hero image" />
+    </figure>
+
     <div class="hero__content">
+
       <article class="text-content">
-        <h3 class="text-content__title">
-          Te facilitamos el proceso para los estudios de títulos de vivienda
-        </h3>
+        <h2 class="text-content__title">
+          <span>Estudios de títulos</span><br />para tus propiedades
+        </h2>
 
-        <ul class="links-list">
-          <li routerLink="/singleStudy" class="button">Realizar consulta</li>
-          <a href="#grid" class="button-ghost">Conocer otros planes</a>
-        </ul>
+        <p class="text-content__paragraph">
+          Nos apoyamos en intelegencia artificial para realizar estudios de
+          títulos en tiempo récord sobre certificados de libertad y tradición
+          obtenidos de las oficinas de registro de instrumentos públicos en
+          Colombia.
+        </p>
       </article>
-
-      <figure class="hero__content__image-container">
-        <img src="/assets/images/brokenImage.png" alt="hero image">
-      </figure>
     </div>
+  </div>
+
+  <div class="solutions">
+    <h2 class="solutions__title">Con nosotros puedes conocer</h2>
+
+    <figure class="solutions__image-container">
+      <img
+        src="/assets/images/home/2search 1.gif"
+        alt="googling an icon house"
+      />
+    </figure>
+
+    <nav class="solutions__list">
+      <li class="solutions__list__item">
+        <span>
+          <img
+            src="/assets/images/home/check.png"
+            alt="check for this solution"
+            class="solutions__list__item__arrow"
+          />
+        </span>
+        <p class="solutions__list__item__text">
+          ¿Quién o quiénes son los propietarios del inmueble?
+        </p>
+      </li>
+      <li class="solutions__list__item">
+        <span>
+          <img
+            src="/assets/images/home/check.png"
+            alt="check for this solution"
+            class="solutions__list__item__arrow"
+          />
+        </span>
+        <p class="solutions__list__item__text">
+          ¿Si existe algún tipo de pignoración o limitación al derecho de
+          dominio sobre el bien?
+        </p>
+      </li>
+      <li class="solutions__list__item">
+        <span>
+          <img
+            src="/assets/images/home/check.png"
+            alt="check for this solution"
+            class="solutions__list__item__arrow"
+          />
+        </span>
+        <p class="solutions__list__item__text">
+          ¿Cuáles son los linderos del inmueble y/o qué bienes componen el
+          inmueble estudiado?
+        </p>
+      </li>
+    </nav>
   </div>
 
   <div class="steps">
+    <h2 class="steps__title">En tan sólo 3 simples pasos</h2>
+
     <ul class="steps-list">
       <li class="steps-list__item step">
-        <div class="circle">
-          <h1 class="number">1</h1>
-        </div>
+        <figure class="icon">
+          <img
+            src="/assets/images/home/step1.png"
+            alt="step 1 get certificate"
+            class="icon_image"
+          />
+        </figure>
         <div class="text-container">
           <h3 class="text-container__content">
-            Ingresa a Supernotariado <a href="">aquí</a> y obtén tu certificado de tradición
+            Ingresa a <a target="_blank" href="https://www.snrcertificados.co/">Supernotariado aquí</a> y obtén tu certificado
+            de tradición
           </h3>
         </div>
       </li>
-      <li class="steps-list__item arrow">
-        <span><i class="fas fa-long-arrow-alt-right"></i></span>
-      </li>
       <li class="steps-list__item step">
-        <div class="circle">
-          <h1 class="number">2</h1>
-        </div>
+        <figure class="icon">
+          <img
+            src="/assets/images/home/step2.png"
+            alt="step 2 upload your  certificate"
+            class="icon_image"
+          />
+        </figure>
         <div class="text-container">
           <h3 class="text-container__content">
-            Subir el PDF
+            Sube el PDF de tu certificado de tradición y libertad
           </h3>
         </div>
       </li>
-      <li class="steps-list__item arrow">
-        <span><i class="fas fa-long-arrow-alt-right"></i></span>
-      </li>
       <li class="steps-list__item step">
-        <div class="circle">
-          <h1 class="number">3</h1>
-        </div>
+        <figure class="icon">
+          <img
+            src="/assets/images/home/step3.png"
+            alt="get your study in your email"
+            class="icon_image"
+          />
+        </figure>
         <div class="text-container">
           <h3 class="text-container__content">
-            Recibirás respuesta a tu correo
+            Recibe tu estudio en tu correo electrónico
           </h3>
         </div>
       </li>
     </ul>
   </div>
 
-  <div class="cta">
+  <div class="grid-container">
+    <div class="grid" id="grid">
+      <div class="grid-element">
+        <div class="grid-element__content green">
+          <figure class="avatar">
+            <img
+              src="/assets/images/home/premium.gif"
+              alt="Choose this option for preferencial studies"
+              class="avatar_image"
+            />
+          </figure>
+          <div class="grid-element__content__card">
+            <h4 class="grid-element__content__card__title">$399.000</h4>
+            <p class="grid-element__content__card__subtitle">
+              Por cada estudio en menos de <strong>24 horas</strong>
+            </p>
+            <hr />
+            <p class="grid-element__content__card__spec">
+              Análisis del certificado de libertad
+            </p>
+            <p class="grid-element__content__card__spec">
+              Almacenamiento del estudio hasta por 3 meses*
+            </p>
+          </div>
+          <input
+            routerLink="/singleStudy"
+            type="button"
+            value="Realizar Estudio"
+            class="grid-element__content--btn"
+          />
+        </div>
+      </div>
 
-    <ul class="cta-list">
-      <li routerLink="/singleStudy" class="button">Realizar consulta</li>
-      <a href="#grid" class="button-ghost">Conocer otros planes</a>
-    </ul>
-
+      <div class="grid-element">
+        <div class="grid-element__content yellow">
+          <figure class="avatar">
+            <img
+              src="/assets/images/home/standard.gif"
+              alt="Choose this option for one single full study"
+              class="avatar_image"
+            />
+          </figure>
+          <div class="grid-element__content__card">
+            <h4 class="grid-element__content__card__title">Personalizado</h4>
+            <p class="grid-element__content__card__subtitle">
+              Contáctanos y te asesoramos
+            </p>
+            <hr />
+            <p class="grid-element__content__card__spec">
+              Paquete para varios estudios
+            </p>
+            <p class="grid-element__content__card__spec">
+              Aplica para más de 10 estudios al mes
+            </p>
+            <p class="grid-element__content__card__spec">
+              Llena el formulario y uno de nuestros asesores te estará contactando</p>
+          </div>
+          <input
+            (click)="customize = true"
+            type="button"
+            value="Diligenciar formulario"
+            class="grid-element__content--btn"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="grid" id="grid">
-    <div class="grid-element">
-      <h4 class="grid-element__title">Una consulta</h4>
-      <div class="grid-element__content">
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <input routerLink="/singleStudy" type="button" value="Comprar" class="grid-element__content--btn">
+  <div [ngClass]="{ customize: customize }" class="call-to-action">
+    <div class="call-to-action__card">
+      <div (click)="customize = false" class="close">
+        <i class="fas fa-times"></i>
       </div>
-    </div>
+      <figure class="call-to-action__card__image">
+        <img
+          src="/assets/images/home/standard.gif"
+          alt="Would you like to register? / diamond with stars"
+        />
+      </figure>
+      <h2 class="call-to-action__card__title">Personaliza tu estudio</h2>
+      <p class="call-to-action__card__text">
+        Déjanos tus datos y en breve un asesor se contactará contigo
+      </p>
 
-    <div class="grid-element">
-      <h4 class="grid-element__title">Plan Platinum</h4>
-      <div class="grid-element__content">
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <p class="grid-element__content--text">Lorem, ipsum</p>
-        <input type="button" value="Comprar" class="grid-element__content--btn">
-      </div>
-    </div>
+      <form
+        class="contact-form"
+        [formGroup]="contactForm"
+        (ngSubmit)="sendForm(contactForm)"
+      >
+        <div class="input-group">
+          <label>
+            Déjanos tu nombre completo
+            <input
+              autofocus
+              type="text"
+              formControlName="name"
+              name="name"
+              id="name"
+              class="input-group__input-area"
+              placeholder="Nombre"
+            />
+          </label>
+        </div>
+        <div class="input-group">
+          <label>
+            Ingresa tu correo electrónico
+            <input
+              type="email"
+              formControlName="email"
+              name="email"
+              id="email"
+              class="input-group__input-area"
+              placeholder="@mail.com"
+            />
+          </label>
+        </div>
+        <div class="input-group">
+          <label>
+            Ingresa un número en el que podamos contactarte
+            <input
+              type="number"
+              formControlName="tel"
+              name="tel"
+              id="tel"
+              class="input-group__input-area"
+            />
+          </label>
+        </div>
+        <div class="input-group">
+          <label>
+            Describe tu solicitud <span>(opcional)</span>
+            <textarea
+              formControlName="description"
+              name="description"
+              id="description"
+              class="input-group__input-area"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </label>
+        </div>
 
-    <div class="grid-element">
-      <h4 class="grid-element__title">Plan Diamante</h4>
-      <div class="grid-element__content">
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <p class="grid-element__content--text">Lorem, ipsum</p>
-        <input type="button" value="Comprar" class="grid-element__content--btn">
-      </div>
-    </div>
+        <div class="politics">
+          <input
+            formControlName="check"
+            name="check"
+            type="checkbox"
+            id="check"
+            value="agree"
+          />
+          <label for="check" class="politics-label">
+            Al dejar mi datos estoy aceptando las <a href="">Políticas de Privacidad</a> por
+            parte de Titulos Ya
+          </label>
+        </div>
 
-    <div class="grid-element">
-      <h4 class="grid-element__title">Plan Empresarial</h4>
-      <div class="grid-element__content">
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <p class="grid-element__content--text">Lorem, ipsum</p>
-        <p class="grid-element__content--text">Lorem, ipsum dolor</p>
-        <input type="button" value="Comprar" class="grid-element__content--btn">
-      </div>
+        <input
+          [class.active]="contactForm.valid"
+          [disabled]="contactForm.invalid"
+          type="submit"
+          id="submit"
+          value="Contactar"
+          class="btn"
+        />
+      </form>
     </div>
   </div>
-
-
 </section>

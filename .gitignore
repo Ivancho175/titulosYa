@@ -46,3 +46,8 @@ Thumbs.db
 
 # customized
 /backend
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import "./theme/settings";
 
 * {
@@ -7,12 +6,100 @@
   box-sizing: border-box;
 }
 
+:root {
+
+  --fs-ps: 12px;
+  --fs-pm: 16px;
+  --fs-pl: 18px;
+  --fs-h1: 28px;
+  --fs-h2: 24px;
+
+  --lh-ps: 14.06px;
+  --lh-pm: 20px;
+  --lh-pl: 22.68px;
+  --lh-h1: 35.28px;
+  --lh-h2: 30.24px;
+
+}
+
+@include sm {
+  :root {
+    --fs-ps: 13.2px;
+    --fs-pm: 17.6px;
+    --fs-pl: 19.8px;
+    --fs-h1: 30.8px;
+    --fs-h2: 26.4px;
+
+    --lh-ps: 15.466px;
+    --lh-pm: 22px;
+    --lh-pl: 24.948px;
+    --lh-h1: 38.808px;
+    --lh-h2: 33.264px;
+  }
+}
+
+@include md {
+  :root {
+    --fs-ps: 15.6px;
+    --fs-pm: 20.8px;
+    --fs-pl: 23.4px;
+    --fs-h1: 36.4px;
+    --fs-h2: 31.2px;
+
+    --lh-ps: 18.278px;
+    --lh-pm: 26px;
+    --lh-pl: 29.484px;
+    --lh-h1: 45.864px;
+    --lh-h2: 39.312px;
+  }
+}
+
+@include lg {
+  :root {
+    --fs-ps: 12.8px;
+    --fs-pm: 16px;
+    --fs-pl: 17.6px;
+    --fs-px: 19.2px;
+    --fs-h1: 25.6px;
+    --fs-h2: 25.6px;
+
+    --lh-ps: 16px;
+    --lh-pm: 20.16px;
+    --lh-pl: 22.176px;
+    --lh-px: 24.192px;
+    --lh-h1: 32.256px;
+    --lh-h2: 32.256px;
+  }
+}
+
+@include xl {
+  :root {
+    --fs-ps: 16px;
+    --fs-pm: 20px;
+    --fs-pl: 22px;
+    --fs-px: 24px;
+    --fs-h1: 32px;
+    --fs-h2: 32px;
+
+    --lh-ps: 20px;
+    --lh-pm: 25.2px;
+    --lh-pl: 27.72px;
+    --lh-px: 30.24px;
+    --lh-h1: 40.32px;
+    --lh-h2: 40.32px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
-  font-family: 'Open-sans', Arial, Helvetica, sans-serif;
-  font-weight: $--fw-light;
-  color: #333333;
+  font-family: $--ff-primary;
+  font-weight: $--fw-regular;
+  background-color: $--background;
+  color: $--foreground;
+  height: 100%;
+  overflow-x: hidden;
 }

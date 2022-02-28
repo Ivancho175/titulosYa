@@ -1,12 +1,6 @@
 @import "/theme/settings";
 
 .logged {
-  @include flexbox(center,center, column);
-  height: 101vh;
   width: 100%;
-  background-color: brown;
-  p {
-    font-size: 72px;
-    color: aqua;
-  }
+  padding: 4.5rem 0 0;
 }

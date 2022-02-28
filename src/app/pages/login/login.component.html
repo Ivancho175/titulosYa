@@ -1,23 +1,45 @@
 <section class="login">
-
   <div class="login-content">
+    <h1 class="login-content__title">
+      Iniciar sesión <span class="login-content__title__extra">aquí</span>
+    </h1>
 
-    <h3 class="login-content__title">Inicia tu sesión aquí</h3>
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="login(loginForm)"
+      class="login-content__fields"
+    >
+      <label for="email">Ingresa tu correo electrónico</label>
+      <input
+        formControlName="email"
+        name="email"
+        type="email"
+        id="email"
+        placeholder="@mail.com"
+        class="login-content__fields__input-area"
+      />
 
-    <div class="login-content__fields">
+      <label for="password">¿Cuál es tu contraseña?</label>
+      <input
+        formControlName="password"
+        name="password"
+        type="password"
+        id="password"
+        class="login-content__fields__input-area"
+      />
 
-      <input [formControl]="emailField" type="email" placeholder="Correo electrónico" class="login-content__fields__input-area">
+      <input
+        [ngClass]="{ active: loginForm.valid }"
+        [disabled]="loginForm.invalid"
+        type="submit"
+        id="submit"
+        value="Iniciar sesión"
+        class="login-content__btn"
+      />
+    </form>
 
-      <input [formControl]="passwordField" type="password" placeholder="Contraseña" class="login-content__fields__input-area">
-    </div>
-
-    <input
-    [ngClass]="{active: emailField.valid && passwordField.valid}"
-    type="submit"
-    value="Ingresar"
-    class="login-content__btn"
-    (click)="login()">
-
-    <span routerLink="/register" class="register">Registrarse</span>
+    <span class="register">
+      Aún no tengo una cuenta. <a routerLink="/register">¡Registrarme aqui!</a>
+    </span>
   </div>
 </section>

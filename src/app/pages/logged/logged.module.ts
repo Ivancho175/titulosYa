@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { LoggedRoutingModule } from './logged-routing.module';
 import { LoggedComponent } from './logged.component';
-import { SharedModule } from 'src/app/pages/logged/@shared/shared.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { CreditsComponent } from './credits/credits.component';
 
 
 
 @NgModule({
   declarations: [
-    LoggedComponent
+    SidenavComponent,
+    LoggedComponent,
+    CreditsComponent
   ],
   imports: [
-    BrowserModule,
     CommonModule,
     LoggedRoutingModule,
-    SharedModule,
-    FormsModule,
-    RouterModule
   ],
   bootstrap: [LoggedComponent]
 })

@@ -1,0 +1,92 @@
+<section class="user-data">
+
+  <div class="user-data-content">
+
+    <h3 class="user-data-content__title">Datos de facturación</h3>
+
+    <ul class="selector">
+      <li
+        [ngClass]="{ active: natural }"
+        (click)="natural = true"
+        class="selector__natural">
+        Persona Natural
+      </li>
+      <li
+        [ngClass]="{ active: !natural }"
+        (click)="natural = false"
+        class="selector__juridica">
+        Persona Jurídica
+      </li>
+    </ul>
+
+    <form
+      class="user-data-content__fields"
+      [formGroup]="UserDataForm"
+      (ngSubmit)="sendForm(UserDataForm)">
+
+      <label for="name">Nombre completo</label>
+      <input
+        autofocus
+        autocomplete="off"
+        [class.checked]="UserDataForm.controls.name.valid"
+        formControlName="name"
+        name="name"
+        id="name"
+        type="text"
+        placeholder="Nombre completo"
+        class="user-data-content__fields__input-area">
+
+      <label for="email" *ngIf="natural">Tu correo electrónico</label>
+      <label for="email" *ngIf="!natural">Tu correo electrónico corporativo</label>
+      <input
+        autocomplete="off"
+        [class.checked]="UserDataForm.controls.email.valid"
+        formControlName="email"
+        name="email"
+        id="email"
+        type="email"
+        placeholder="Correo electrónico"
+        class="user-data-content__fields__input-area">
+
+      <label *ngIf="natural" for="documentType">Tipo de documento</label>
+      <select
+        autocomplete="off"
+        [class.checked]="UserDataForm.controls.documentType.valid"
+        *ngIf="natural"
+        formControlName="documentType"
+        name="documentType"
+        class="user-data-content__fields__input-area">
+        <option disabled selected value>
+          Selecciona tu documento
+        </option>
+        <option value="CC">Cédula de ciudadanía</option>
+        <option value="CE">Cédula de extranjería</option>
+        <option value="PP">Pasaporte</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label *ngIf="!natural" for="corp">Razón social</label>
+      <input
+        autocomplete="off"
+        [class.checked]="UserDataForm.controls.corp.valid"
+        *ngIf="!natural"
+        formControlName="corp"
+        name="corp"
+        id="corp"
+        type="text"
+        class="user-data-content__fields__input-area"
+      />
+
+      <label for="docNumber" *ngIf="natural">Número de tu documento</label>
+      <label for="email" *ngIf="!natural">Nit de la empresa</label>
+      <input
+        autocomplete="off"
+        [class.checked]="UserDataForm.controls.docNumber.valid"
+        formControlName="docNumber"
+        id="docNumber"
+        type="text"
+        class="user-data-content__fields__input-area"
+      />
+    </form>
+  </div>
+</section>

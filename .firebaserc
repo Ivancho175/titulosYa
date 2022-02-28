@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "titulosya-89b77"
+  },
+  "targets": {
+    "titulosya-89b77": {
+      "hosting": {
+        "TitulosYa": [
+          "titulosya-89b77"
+        ]
+      }
+    }
   }
 }

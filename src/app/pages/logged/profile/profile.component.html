@@ -1,1 +1,117 @@
-<p>profile works!</p>
+<section class="profile">
+  <div class="form-container">
+    <form
+      class="profile__data"
+      [formGroup]="profileForm"
+      (ngSubmit)="editProfileForm(profileForm)">
+      <div class="input-container">
+        <label for="name">Nombre completo</label>
+        <input
+          autocomplete="off"
+          formControlName="name"
+          name="name"
+          id="name"
+          type="text"
+          [placeholder]="this.users[0]?.name"
+          class="profile-data__input-area"
+          [class.wrong]="profileForm.controls.name.dirty"
+          [class.checked]="profileForm.controls.name.valid"
+        />
+        <p class="error-text">Ingresa tu nombre completo</p>
+      </div>
+      <div class="input-container">
+        <label for="name">Tu correo electrónico</label>
+        <input
+          autocomplete="off"
+          formControlName="email"
+          name="email"
+          id="email"
+          type="text"
+          [placeholder]="this.users[0]?.email"
+          class="profile-data__input-area"
+          [class.wrong]="profileForm.controls.email.dirty"
+          [class.checked]="profileForm.controls.email.valid"
+        />
+        <p
+          [class.valid]="profileForm.controls.email.valid"
+          [class.invalid]="profileForm.controls.email.dirty"
+          class="error-text">Ingresa un email válido</p>
+      </div>
+      <div class="input-container">
+        <label for="tel">¿A que número celular te contáctamos?</label>
+        <input
+          autocomplete="off"
+          [class.wrong]="profileForm.controls.tel.dirty"
+          [class.checked]="profileForm.controls.tel.valid"
+          formControlName="tel"
+          id="tel"
+          name="tel"
+          type="number"
+          [placeholder]="this.users[0]?.phone"
+          class="profile-data__input-area"
+        />
+        <p
+          [class.valid]="profileForm.controls.tel.valid"
+          [class.invalid]="profileForm.controls.tel.dirty"
+          class="error-text">
+          Ingresa un número de contacto válido
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="docNumber" *ngIf="natural">Número de tu documento</label>
+        <label for="email" *ngIf="!natural">Nit de la empresa</label>
+        <input
+          autocomplete="off"
+          [class.wrong]="profileForm.controls.docNumber.dirty"
+          [class.checked]="profileForm.controls.docNumber.valid"
+          formControlName="docNumber"
+          id="docNumber"
+          type="number"
+          [placeholder]="this.users[0]?.docType + ' ' + this.users[0]?.docNumber"
+          class="profile-data__input-area"
+        />
+        <p
+          [class.valid]="profileForm.controls.docNumber.valid"
+          [class.invalid]="profileForm.controls.docNumber.dirty"
+          class="error-text">
+          Ingresa un número válido sin espacios ni guiones
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="password">
+          Crea tu contraseña
+          <span>(Mínimo 8 caracteres alfanumericos)</span></label
+        >
+        <input
+          [class.checked]="profileForm.controls.password.valid"
+          formControlName="password"
+          name="password"
+          id="password"
+          type="password"
+          placeholder="* * * * * * * *"
+          class="profile-data__input-area"
+        />
+        <p
+          [class.valid]="profileForm.controls.password.valid"
+          [class.invalid]="profileForm.controls.password.dirty"
+          class="error-text">
+          Tu contraseña debe contener mínimo 8 caracteres
+        </p>
+      </div>
+      <input
+        [ngClass]="{ active: profileForm.valid }"
+        [disabled]="profileForm.invalid"
+        type="submit"
+        id="submit"
+        value="Guardar"
+        class="profile__data__btn"
+      />
+    </form>
+  </div>
+  <div class="go-to-study">
+    <figure class="go-to-study__image">
+      <img src="/assets/images/logged/profile/image 19.png" alt="Make an study">
+    </figure>
+    <button routerLink="/logged/studies" class="btn">Realizar un estudio</button>
+  </div>
+</section>

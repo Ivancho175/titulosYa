@@ -26,6 +26,18 @@ const routes: Routes = [
   {
     path: 'logged',
     loadChildren: () => import('./pages/logged/logged.module').then(m => m.LoggedModule)
+  },
+  {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule)
+  },
+  {
+    path: 'success',
+    loadChildren: () => import('./pages/success/success.module').then(m => m.SuccessModule)
+  },
+  {
+    path: 'fail',
+    loadChildren: () => import('./pages/fail/fail.module').then(m => m.FailModule)
   }
 ];
 

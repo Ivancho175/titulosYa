@@ -1,0 +1,200 @@
+@import "./theme/settings";
+
+.user-data {
+  display: block;
+  padding-top: 4.5rem;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+  text-align: center;
+  & * {
+    transition: all 50ms ease-in-out;
+  }
+  &-content {
+    @include flexbox(center, center, column);
+    width: 100%;
+    &__title {
+      @include fontStyle(var(--fs-h1), var(--lh-h1), $--fw-semi-bold, $--foreground, undefined);
+      font-family: $--ff-secondary;
+      max-width: 13.75rem;
+      margin-right: auto;
+      margin-bottom: 1em;
+      text-align: left;
+    }
+    .selector {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      list-style: none;
+      &__natural,
+      &__juridica {
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-regular,
+          $--foreground-opaque,
+          undefined
+        );
+        cursor: pointer;
+        padding: 0.75rem 0;
+        border-bottom: solid 4px transparent;
+        &:hover,
+        &.active {
+          color: $--foreground;
+          border-bottom: solid 4px $--clr-primary-blue;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    &__fields {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 0.5em;
+      width: 100%;
+      padding: 1.5rem 0;
+      label {
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-regular,
+          $--foreground,
+          undefined
+        );
+        margin-right: auto;
+        text-align: left;
+        span {
+          @include fontStyle(
+            var(--fs-ps),
+            var(--lh-ps),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+        }
+      }
+      select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background: url("/assets/images/icons/select-arrow.svg")
+          no-repeat 94.5% 50%;
+        option {
+          @include fontStyle(
+            var(--fs-pm),
+            var(--lh-pm),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+          font-family: $--ff-primary;
+          opacity: 0.8;
+        }
+      }
+      &__input-area {
+        @include fontStyle(
+          var(--fs-pm),
+          var(--lh-pm),
+          $--fw-light,
+          $--foreground,
+          undefined
+        );
+        font-family: $--ff-primary;
+        padding: 0.9375rem;
+        border-radius: 32px;
+        border: solid 1px rgb(184, 184, 184);
+        margin-bottom: 1em;
+        &.checked {
+          background: url("/assets/images/icons/success.svg")
+            no-repeat 94.5% 50%;
+        }
+        &:active,
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          @include fontStyle(
+            var(--fs-pm),
+            var(--lh-pm),
+            $--fw-light,
+            $--foreground-opaque,
+            undefined
+          );
+          font-family: $--ff-primary;
+          opacity: 0.8;
+        }
+      }
+      .politics-label {
+        @include flexbox(center, center, row);
+        @include fontStyle(
+          12px,
+          14.06px,
+          $--fw-regular,
+          $--foreground,
+          undefined
+        );
+        input[type=checkbox] {
+          height: 25px;
+          min-width: 25px;
+          margin-right: 1em;
+          opacity: 0.3;
+          &:checked {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+
+  @include sm {
+    max-width: 22rem;
+    &-content {
+      &__title {
+        margin-bottom: 1.1em;
+      }
+      &__fields {
+        row-gap: 0.55em;
+        &__input-area {
+          padding: 1.03125rem;
+          margin-bottom: 1.1em;
+        }
+      }
+    }
+  }
+
+  @include md {
+    max-width: 26rem;
+    &-content {
+      &__title {
+        margin-bottom: 1.3em;
+      }
+      &__fields {
+        row-gap: 0.65em;
+        &__input-area {
+          padding: 1.21875rem;
+          margin-bottom: 1.3em;
+        }
+      }
+    }
+  }
+
+  @include lg {
+    place-self: center;
+    width: 100%;
+    &-content {
+      &__title {
+        max-width: none;
+        margin-bottom: 1.2em;
+      }
+    }
+  }
+
+  @include xl {
+    &-content {
+      &__title {
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+}

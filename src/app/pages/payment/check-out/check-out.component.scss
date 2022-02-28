@@ -1,0 +1,102 @@
+@import "./theme/settings";
+
+.check-out {
+  @include flexbox(center, center, column);
+  min-height: 101vh;
+  width: 100%;
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2em;
+    min-width: 300px;
+    &__title {
+      font-size: 32px;
+      line-height: 42px;
+      font-weight: $--fw-bold;
+    }
+    .pay-options {
+      margin: 0.5em 0;
+      &__text {
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: $--fw-light;
+      }
+      hr {
+        width: 75%;
+        height: 5px;
+        background-color: rgb(150, 115, 0);
+        margin: 1em 0;
+        border-radius: 2.5px;
+      }
+      &__options-list {
+        @include flexbox(space-between, center, row);
+        padding: 1em;
+        width: 100%;
+        img {
+          width: 100px;
+          opacity: 0.7;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+      &__msg {
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.04em;
+        padding: 3em 0 0 0;
+      }
+    }
+    &__fields {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 0.5em;
+      max-width: 500px;
+      &__input-area {
+        padding: 15px 10px;
+        border-radius: 5px;
+        border: solid 1px rgb(184, 184, 184);
+        &:active,
+        &:focus {
+          outline: none;
+        }
+      }
+      .date-and-code {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 1em;
+      }
+      .amount-and-confirm {
+        @include flexbox(space-between, center, row);
+        span {
+          @include flexbox(center, center, column);
+          width: 50%;
+          font-size: 32px;
+          color: rgb(52, 125, 209);
+        }
+        .check-out-content__btn {
+          width: 50%;
+          padding: 15px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: solid 1px #4c49a7c5;
+          color: #4c49a7c5;
+          background-color: transparent;
+          transition: all 50ms linear;
+          pointer-events: none;
+          &.active {
+            cursor: pointer;
+            background-color: #4c49a7c5;
+            color: #fff;
+            pointer-events: all;
+            &:hover {
+              background-color: #4c49a7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
